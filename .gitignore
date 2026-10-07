@@ -1,0 +1,22 @@
+# Dependencies and build output
+/node_modules/
+/.next/
+/out/
+/build/
+/coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Local environment and credentials
+.env*
+!.env.example
+/.aws/
+/secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Logs and OS files
+*.log
+.DS_Store
