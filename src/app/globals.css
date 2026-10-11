@@ -1,7 +1,99 @@
 @import "tailwindcss";
 
+:root {
+  --color-ivory: #faf8f5;
+  --color-plum: #695078;
+  --color-ink: #26232b;
+  --color-muted: #6e6877;
+}
+
 body {
-  background: #ffffff;
-  color: #171717;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font: inherit; cursor: pointer; }
+button:focus-visible { outline: 3px solid var(--color-plum); outline-offset: 4px; }
+.login-page { min-height: 100svh; display: grid; place-items: center; padding: 48px 24px; }
+.login-card { width: min(100%, 1040px); display: grid; grid-template-columns: 1fr 1fr; padding: 16px; background: #fff; border: 1px solid #eee8e2; border-radius: 24px; box-shadow: 0 16px 60px -24px #38233818; }
+.brand-panel { min-height: 610px; background: #f5eff6; border-radius: 14px; padding: 38px 36px 36px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
+.brand-lockup { display: flex; align-items: center; gap: 9px; align-self: flex-start; }
+.brand-name { font: 600 24px/1.2 var(--font-heading), Georgia, serif; letter-spacing: -.8px; }
+.brand-name span { color: var(--color-plum); }
+.brand-description { margin-top: 5px; font-size: 9px; font-weight: 600; letter-spacing: 2.3px; text-transform: uppercase; color: var(--color-muted); }
+.artwork-frame { width: min(100%, 330px); margin: 28px 0; }
+.wedding-artwork { width: 100%; height: auto; display: block; }
+.brand-story { text-align: center; }
+.brand-quote { font: 500 25px/1.4 var(--font-heading), Georgia, serif; letter-spacing: -.5px; }
+.brand-story > p:last-child { margin-top: 15px; color: var(--color-muted); font-size: 12px; }
+.sign-in-panel { padding: 64px 48px 24px; display: flex; flex-direction: column; justify-content: center; }
+.sign-in-content { margin: auto 0; }
+.eyebrow { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.6px; color: var(--color-plum); margin-bottom: 20px; }
+.eyebrow span { width: 5px; height: 5px; border-radius: 50%; background: var(--color-plum); }
+h1 { font: 500 42px/1.22 var(--font-heading), Georgia, serif; letter-spacing: -1.3px; }
+.sign-in-description { max-width: 320px; color: var(--color-muted); font-size: 14px; line-height: 1.85; margin-top: 18px; }
+.sign-in-action { margin-top: 36px; }
+.google-button { width: 100%; min-height: 54px; border: 1px solid #ded8df; border-radius: 9px; background: #fff; box-shadow: 0 2px 4px #26232b05; display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--color-ink); font-size: 13px; font-weight: 600; transition: background .18s, border-color .18s; }
+.google-button:hover { background: #faf7fc; border-color: #a08caa; }
+.google-button:active { background: #f3edf6; }
+.google-button:disabled { cursor: wait; opacity: .65; }
+.google-button svg { flex: none; }
+.sign-in-helper { font-size: 12px; color: var(--color-muted); text-align: center; margin-top: 14px; }
+.sign-up-helper { font-size: 12px; color: var(--color-muted); text-align: center; line-height: 1.8; margin-top: 8px; }
+.workspace-note { margin-top: 36px; padding: 16px; border-radius: 9px; background: #f6f2f7; display: flex; align-items: center; gap: 12px; color: var(--color-plum); }
+.workspace-note svg { flex: none; }
+.workspace-note p { font-size: 12px; font-weight: 600; line-height: 1.6; }
+.workspace-note span { display: block; font-size: 11px; line-height: 1.7; color: var(--color-muted); margin-top: 3px; }
+.sign-in-footer { text-align: center; font-size: 11px; color: var(--color-muted); margin-top: 48px; letter-spacing: .2px; }
+.sign-in-notice { margin-top: 16px; padding: 12px 14px; background: #f1e2de; border: 1px solid #e4d1cb; border-radius: 8px; font-size: 12px; line-height: 1.7; color: #623c37; }
+.notice-dismiss { display: block; padding: 6px 0; background: transparent; border: 0; color: #623c37; font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.account-card { width: min(100%, 480px); padding: 40px; background: #fff; border: 1px solid #eee8e2; border-radius: 24px; }
+.account-card h1 { margin-top: 28px; font-size: 34px; }
+.account-email { margin-top: 8px; color: var(--color-plum); font-size: 14px; overflow-wrap: anywhere; }
+.account-card .sign-in-description { max-width: none; }
+
+@media (max-width: 900px) and (min-width: 701px) {
+  .brand-panel { padding: 32px 24px; }
+  .sign-in-panel { padding: 44px 28px 24px; }
+  h1 { font-size: 35px; }
+  .brand-quote { font-size: 22px; }
+}
+
+@media (max-width: 700px) {
+  .login-page { padding: 28px 22px max(28px, env(safe-area-inset-bottom)); align-items: start; }
+  .login-card { max-width: 440px; grid-template-columns: 1fr; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+  .brand-panel { min-height: 0; padding: 0; background: transparent; }
+  .brand-lockup { align-self: center; }
+  .brand-name { font-size: 23px; }
+  .brand-description { font-size: 9px; }
+  .artwork-frame { width: 220px; margin: 28px auto 23px; }
+  .brand-story { display: none; }
+  .sign-in-panel { padding: 0; text-align: center; }
+  .eyebrow { display: none; }
+  h1 { font-size: 32px; line-height: 1.24; letter-spacing: -.8px; max-width: 350px; margin: 0 auto; }
+  .desktop-line-break { display: none; }
+  .sign-in-description { font-size: 13px; line-height: 1.8; max-width: 300px; margin: 15px auto 0; }
+  .sign-in-action { margin-top: 28px; }
+  .google-button { font-size: 13px; }
+  .sign-up-helper { max-width: 285px; margin: 8px auto 0; }
+  .workspace-note { text-align: left; margin-top: 26px; padding: 16px; }
+  .workspace-note p { font-size: 12px; }
+  .workspace-note span { font-size: 11px; }
+  .sign-in-footer { margin-top: 26px; }
+  .sign-in-notice { text-align: left; }
+  .account-card { padding: 28px 24px; }
+}
+
+@media (max-width: 360px) {
+  .login-page { padding: 24px 18px; }
+  .artwork-frame { width: 190px; margin-top: 24px; }
+  h1 { font-size: 29px; }
+  .workspace-note { padding: 12px; gap: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }
